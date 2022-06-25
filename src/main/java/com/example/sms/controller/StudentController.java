@@ -1,11 +1,16 @@
 package com.example.sms.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.sms.entity.Student;
 import com.example.sms.service.StudentService;
@@ -22,6 +27,10 @@ public class StudentController {
 		this.studentService = studentService;
 	}
 	
+    @RequestMapping(value = "/")
+    public void redirect(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/students");
+    }
 	// handler method to handle list students and return mode and view
 	@GetMapping("/students")
 	public String listStudents(Model model) {

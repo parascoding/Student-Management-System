@@ -23,16 +23,20 @@ public class Student {
 	
 	@Column(name = "email")
 	private String email;
+
+	@Column(name = "branch")
+	private String branch;
 	
 	public Student() {
 		
 	}
 	
-	public Student(String firstName, String lastName, String email) {
+	public Student(String firstName, String lastName, String email, String branch) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.branch=branch;
 	}
 	public Long getId() {
 		return id;
@@ -57,5 +61,11 @@ public class Student {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getBranch() {
+		return this.branch;
+	}
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
 }

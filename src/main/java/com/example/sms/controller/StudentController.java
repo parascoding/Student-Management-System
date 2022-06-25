@@ -64,6 +64,7 @@ public class StudentController {
         existingStudent.setFirstName(student.getFirstName());
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
+        existingStudent.setBranch(student.getBranch());
 
         // Save
         studentService.updateStudent(existingStudent);
@@ -74,7 +75,5 @@ public class StudentController {
     public String deleteStudent(@PathVariable Long id){
         studentService.deleteStudentById(id);
         return "redirect:/students"; 
-    }
-
-    
+    }   
 }
